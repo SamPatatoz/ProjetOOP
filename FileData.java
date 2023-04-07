@@ -6,26 +6,26 @@ public class FileData {
     private char typeOfNode;
     private int childLeft;
     private int childRight;
+    private int lineInFile;
     private String nodeDescription;
 
-    // This is a constructor for the `FileData` class that takes in four parameters: `type`, `cLeft`,
-    // `cRight`, and `description`. It initializes the `typeOfNode` property of the `FileData` object
-    // to the value of `type`, the `nodeDescription` property to the value of `description`, and the
-    // `childLeft` and `childRight` properties to the values of `cLeft` and `cRight`, respectively, if
-    // both `cLeft` and `cRight` are greater than 0. If either `cLeft` or `cRight` is not greater than
-    // 0, then `childLeft` and `childRight` are both set to -1.
-    public FileData(char type, int cLeft, int cRight, String description){
+    // This is a constructor for the `FileData` class that takes in five parameters: `type` (a `char`
+    // representing the type of node), `cL` (an `int` representing the index of the left child node),
+    // `cR` (an `int` representing the index of the right child node), `description` (a `String`
+    // representing the description of the node), and `line` (an `int` representing the line number of
+    // the node in the file).
+    public FileData(char type, int cL, int cR, String description, int line){
         typeOfNode = type;
         nodeDescription = description;
-        if((cLeft > 0 && cRight > 0)){
-            childLeft = cLeft;
-            childRight = cRight;
+        lineInFile = line;
+        if((cL > 0 && cR > 0)){
+            childLeft = cL;
+            childRight = cR;
         }
         else{
             childLeft = -1;
             childRight = -1;
         }
-
     }
 
     /**
@@ -59,6 +59,20 @@ public class FileData {
             return data.childLeft;
         else
             return data.childRight;
+    }
+
+    /**
+     * The function returns the line number of a given file data object.
+     * 
+     * @param data The parameter "data" is of type "FileData", which is likely a custom class that
+     * represents some data related to a file. The method "get_lineInFile" is a member of this class
+     * and returns the line number in the file where this data is located.
+     * @return The method `get_lineInFile` is returning an integer value which represents the line
+     * number in a file. The value is obtained from the `lineInFile` field of the `FileData` object
+     * passed as a parameter to the method.
+     */
+    public int get_lineInFile(FileData data){
+        return data.lineInFile;
     }
 
     /**
