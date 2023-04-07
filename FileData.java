@@ -43,20 +43,19 @@ public class FileData {
     }
 
     /**
-     * This function returns the child node of a given node in a binary tree represented by a FileData
-     * object.
+     * The function returns the child node of a given FileData object based on a specified choice.
      * 
-     * @param data an object of type FileData, which likely contains information about a file or
-     * directory, including its children nodes.
-     * @param node The parameter "node" is an integer representing the node for which we want to get
-     * the child. If the value of "node" is 0, then we want to get the left child of the root node. If
-     * the value of "node" is 1, then we want to get
-     * @return The method `get_child` is returning an integer value which represents the child node of
-     * a given `node` in a binary tree. If `node` is 0, it returns the value of `data.childLeft`,
-     * otherwise it returns the value of `data.childRight`.
+     * @param data A variable of type FileData, which likely contains information about a file or
+     * directory, including its children.
+     * @param choice The choice parameter is an integer that determines which child of the given
+     * FileData object to return. If choice is 0, the left child is returned, and if choice is any
+     * other integer, the right child is returned.
+     * @return The method `get_child` is returning an integer value, which is either the value of
+     * `data.childLeft` or `data.childRight` depending on the value of the `choice` parameter. If
+     * `choice` is 0, then `data.childLeft` is returned, otherwise `data.childRight` is returned.
      */
-    public int get_child(FileData data, int node){
-        if(node == 0)
+    public int get_child(FileData data, int choice){
+        if(choice == 0)
             return data.childLeft;
         else
             return data.childRight;
