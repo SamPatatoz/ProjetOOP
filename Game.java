@@ -3,5 +3,6 @@ public class Game {
         //Check the input argument
         if(!(args.length > 0))
             System.out.println("ERROR : missing argument (Input .txt file)");
+            System.exit(-1);
     }
 }
