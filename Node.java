@@ -1,9 +1,11 @@
 public class Node {
-    private String data;
-    private Node left;
-    private Node right;
+    public Node right;
+    public Node left;
+    public String data;
+    public boolean leaf;
 
-    public Node(int value){
+    public Node(String data){
+        this.data = data;
         right = null;
         left = null;
     }
