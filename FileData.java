@@ -1,8 +1,32 @@
+/**
+ * The `FileData` class contains methods for retrieving information about a file node in a file system,
+ * including its type, child nodes, node description, and whether it is a leaf node.
+ */
 public class FileData {
     private char typeOfNode;
     private int childLeft;
     private int childRight;
     private String nodeDescription;
+
+    // This is a constructor for the `FileData` class that takes in four parameters: `type`, `cLeft`,
+    // `cRight`, and `description`. It initializes the `typeOfNode` property of the `FileData` object
+    // to the value of `type`, the `nodeDescription` property to the value of `description`, and the
+    // `childLeft` and `childRight` properties to the values of `cLeft` and `cRight`, respectively, if
+    // both `cLeft` and `cRight` are greater than 0. If either `cLeft` or `cRight` is not greater than
+    // 0, then `childLeft` and `childRight` are both set to -1.
+    public FileData(char type, int cLeft, int cRight, String description){
+        typeOfNode = type;
+        nodeDescription = description;
+        if((cLeft > 0 && cRight > 0)){
+            childLeft = cLeft;
+            childRight = cRight;
+        }
+        else{
+            childLeft = -1;
+            childRight = -1;
+        }
+
+    }
 
     /**
      * This function returns the type of node for a given file data.
