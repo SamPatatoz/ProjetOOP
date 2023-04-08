@@ -19,6 +19,7 @@ public class Node {
         else
             isLeaf = false;
         this.data = data;
+        right = left = null;
     }
 
     /**
