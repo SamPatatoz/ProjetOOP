@@ -82,7 +82,7 @@ public class FileData {
      * @return The method `get_value` is returning the `nodeDescription` attribute of the `FileData`
      * object passed as a parameter.
      */
-    public String get_value(FileData data){
+    public String get_description(FileData data){
         return data.nodeDescription;
     }
 }

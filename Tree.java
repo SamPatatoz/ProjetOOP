@@ -51,15 +51,12 @@ public class Tree {
             //check if not a leaf
             if(!(treeTemp.node[i].is_leaf(treeTemp.node[i]))){
                 FileData tempData = treeTemp.node[i].get_data(treeTemp.node[i]);
-
                 int leftNode = tempData.get_child(tempData, left);
                 int rightNode = tempData.get_child(tempData, right);
-
-                treeTemp.node[i].left = treeTemp.node[leftNode];
-                treeTemp.node[i].right = treeTemp.node[rightNode];
+                treeTemp.node[i].left = treeTemp.node[leftNode - 1];
+                treeTemp.node[i].right = treeTemp.node[rightNode - 1];
             }
         }
-
         tree = treeTemp;
         return tree;
     }
