@@ -1,5 +1,5 @@
-# ProjectOOP for 16/04/2023
-# EL MASRI Sam & SICIM Merve
+# ProjectOOP 2022/2023
+- EL MASRI Sam & SICIM Merve
 
 # General
 - How to run the game :
