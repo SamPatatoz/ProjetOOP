@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  * The `Tree` class creates and manipulates a binary tree data structure using an array of `Node`
  * objects.
@@ -84,6 +85,70 @@ public class Tree {
         }
         tree.root = find_root(tree);
         return tree;
+    }
+
+    public void play_tree(Tree tree, String intro){
+        System.out.println("Welcome to the game !");
+        System.out.println(intro + ", and then press <return>.");
+
+        Node currentNode = tree.root;
+        char answer;
+        final char YES = 'Y';
+        final char NO = 'N';
+        Scanner sc = new Scanner(System.in);
+
+        while(currentNode != null){
+            if(currentNode.is_leaf(currentNode))
+                System.out.println("Is it " + currentNode.get_description(currentNode) + "?");
+            else
+                System.out.println(currentNode.get_description(currentNode) + "(Y/N)");
+            System.out.printf("> ");
+            answer = sc.next().charAt(0);
+            while(answer != YES && answer != NO){
+                System.out.println("WARNING: Please choose between 'Y' or 'N'");
+                System.out.println(currentNode.get_description(currentNode));
+                System.out.printf("> ");
+                answer = sc.next().charAt(0);
+            }
+            
+            if(answer == YES){
+                if(currentNode.is_leaf(currentNode))
+                    System.out.println("I have won !");
+                currentNode = currentNode.left;
+            }
+            else if (answer == NO){
+                if(currentNode.is_leaf(currentNode)){
+                    //ask the choosen answer
+                    System.out.println("I am unable to guess; you have won!");
+                    System.out.println("What did you choose?");
+                    System.out.printf("> ");
+                    sc.nextLine();
+                    String winnerAnswer = sc.nextLine();
+                    
+                    //The question to distinguish
+                    System.out.println("What question could I ask to distinguish " 
+                    + winnerAnswer + " from " 
+                    + currentNode.get_description(currentNode) + " ?");
+                    System.out.printf("> ");
+                    String winnerDescription = sc.nextLine();
+
+                    //Yes or No for the question
+                    System.out.println("For " + winnerAnswer 
+                                        + ", would you answer yes or no to this question(Y/N)?");
+                    System.out.printf("> ");  
+                    answer = sc.next().charAt(0);                 
+                    while(answer != YES && answer != NO){
+                        System.out.println("WARNING: Please choose between 'Y' or 'N'");
+                        System.out.printf("> ");
+                        answer = sc.next().charAt(0);
+                    }
+                    System.out.println("Thank you !");
+                }
+                currentNode = currentNode.right;
+            }
+            
+        }
+        sc.close();
     }
     
 }
