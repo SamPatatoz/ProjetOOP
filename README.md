@@ -20,12 +20,3 @@ then press <return>.”).
 - An internal node is represented by a line of the form ? n1 n0 Question associated to this node
 where n1 and n0 are the numbers of the children nodes associated (respectively) to the yes and no
 answers to the question. The question is written without its final question mark.
-
-7 Please choose an animal
-? 2 6 Does it have 4 legs
-? 7 4 Does it eat grass
-= a dog
-? 3 5 Does it bark
-= a cat
-= a chicken
-= a cow

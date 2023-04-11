@@ -87,9 +87,17 @@ public class Tree {
         return tree;
     }
 
+    /**
+     * This function plays a game where the user answers yes or no questions to guess a chosen item,
+     * and if the program fails to guess, it asks the user for a distinguishing question.
+     * 
+     * @param tree The tree object that represents the game's decision tree structure.
+     * @param intro A String representing the introduction to the game, typically the player's name or
+     * a greeting.
+     */
     public void play_tree(Tree tree, String intro){
         System.out.println("Welcome to the game !");
-        System.out.println(intro + ", and then press <return>.");
+        System.out.println("Hey,"+ intro + ", and then press <return>.");
 
         Node currentNode = tree.root;
         char answer;
@@ -132,7 +140,7 @@ public class Tree {
                     System.out.printf("> ");
                     String winnerDescription = sc.nextLine();
 
-                    //Yes or No for the question
+                    //Yes or No for the question to distinguish
                     System.out.println("For " + winnerAnswer 
                                         + ", would you answer yes or no to this question(Y/N)?");
                     System.out.printf("> ");  

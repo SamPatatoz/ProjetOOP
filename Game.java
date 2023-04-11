@@ -1,21 +1,33 @@
+import java.io.*;
 public class Game {
-    public static void main(final String[] args) {
+    public static void main(final String[] args) throws IOException {
         // This code is checking if the length of the `args` array is greater than 0
         if(!(args.length > 0)){
             
             System.out.println("ERROR : missing argument (Input .txt file)");
             System.exit(-1);
         }
-        int nbrOfNode = 5;
+         
+        File file = new File(args[0]);
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        Reader rd = new Reader(br);
+
+        int nbrOfNode = rd.read_numberOfNodes();
+        if(nbrOfNode < 1){
+            System.out.println("ERROR : Number of nodes not valid in file!");
+            System.exit(-1);
+        }
+        String intro = rd.read_introduction();
+        if(intro == null){
+            System.out.println("ERROR : Introuction not valid in file!");
+            System.exit(-1);
+        }
+
         FileData[] data = new FileData[nbrOfNode];
-        data[1] = new FileData('=', -1, -1, "une vache", 2);
-        data[0] = new FileData('?', 3, 5, "Poilu ?", 1);
-        data[2] = new FileData('=', -1, -1, "un singe", 3); 
-        data[3] = new FileData('?', 2, 1, "Est ce qu'il a 4 pattes ?", 4);
-        data[4] = new FileData('=', -1, -1, "une femme", 5);
+        data = rd.read_fileData(data, nbrOfNode);
         
         Tree tree = new Tree(nbrOfNode);
         tree = tree.create_complete_tree(tree, data);
-        tree.play_tree(tree, "Please choose an animal");
+        tree.play_tree(tree, intro);
     }
 }
