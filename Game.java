@@ -7,13 +7,14 @@ public class Game {
             System.out.println("ERROR : missing argument (Input .txt file)");
             System.exit(-1);
         }
-         
-        File file = new File(args[0]);
+        
+        final String filename = args[0];
+        File file = new File(filename);
         BufferedReader br = new BufferedReader(new FileReader(file));
         Reader rd = new Reader(br);
 
         int nbrOfNode = rd.read_numberOfNodes();
-        if(nbrOfNode < 1){
+        if(nbrOfNode < 3){
             System.out.println("ERROR : Number of nodes not valid in file!");
             System.exit(-1);
         }
@@ -25,9 +26,11 @@ public class Game {
 
         FileData[] data = new FileData[nbrOfNode];
         data = rd.read_fileData(data, nbrOfNode);
+
+        br.close();
         
         Tree tree = new Tree(nbrOfNode);
         tree = tree.create_complete_tree(tree, data);
-        tree.play_tree(tree, intro);
+        tree.play_tree(tree, intro, filename);
     }
 }

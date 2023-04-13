@@ -6,6 +6,8 @@ public class Node {
     public Node right;
     public Node left;
     public Node parent;
+    public int intRight;
+    public int intLeft;
     private boolean isLeaf;
     private FileData data;
     private String description;

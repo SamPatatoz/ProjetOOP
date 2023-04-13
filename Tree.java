@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 /**
  * The `Tree` class creates and manipulates a binary tree data structure using an array of `Node`
@@ -74,8 +75,10 @@ public class Tree {
             if(!(tree.node[i].is_leaf(tree.node[i]))){
                 FileData tempData = tree.node[i].get_data(tree.node[i]);
                 //set the children to the current node
-                int leftNode = tempData.get_child(tempData, left);
-                int rightNode = tempData.get_child(tempData, right);
+                tree.node[i].intLeft = tempData.get_child(tempData, left);
+                tree.node[i].intRight = tempData.get_child(tempData, right);
+                int leftNode = tree.node[i].intLeft;
+                int rightNode = tree.node[i].intRight;
                 tree.node[i].left = tree.node[leftNode - 1];
                 tree.node[i].right = tree.node[rightNode - 1];
                 //set the parent to the children
@@ -94,8 +97,9 @@ public class Tree {
      * @param tree The tree object that represents the game's decision tree structure.
      * @param intro A String representing the introduction to the game, typically the player's name or
      * a greeting.
+     * @throws IOException
      */
-    public void play_tree(Tree tree, String intro){
+    public void play_tree(Tree tree, String intro, String filename) throws IOException{
         System.out.println("Welcome to the game !");
         System.out.println("Hey,"+ intro + ", and then press <return>.");
 
@@ -131,17 +135,17 @@ public class Tree {
                     System.out.println("What did you choose?");
                     System.out.printf("> ");
                     sc.nextLine();
-                    String winnerAnswer = sc.nextLine();
+                    String winnerDescription = sc.nextLine();
                     
-                    //The question to distinguish
+                    //Ask the question to distinguish
                     System.out.println("What question could I ask to distinguish " 
-                    + winnerAnswer + " from " 
+                    + winnerDescription + " from " 
                     + currentNode.get_description(currentNode) + " ?");
                     System.out.printf("> ");
-                    String winnerDescription = sc.nextLine();
+                    String winnerQuestion = sc.nextLine();
 
                     //Yes or No for the question to distinguish
-                    System.out.println("For " + winnerAnswer 
+                    System.out.println("For " + winnerDescription 
                                         + ", would you answer yes or no to this question(Y/N)?");
                     System.out.printf("> ");  
                     answer = sc.next().charAt(0);                 
@@ -150,6 +154,8 @@ public class Tree {
                         System.out.printf("> ");
                         answer = sc.next().charAt(0);
                     }
+                    Writer wt = new Writer(tree, filename, answer, currentNode);
+                    wt.write_user_data(winnerQuestion, winnerDescription);
                     System.out.println("Thank you !");
                 }
                 currentNode = currentNode.right;
