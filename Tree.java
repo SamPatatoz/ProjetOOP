@@ -101,7 +101,7 @@ public class Tree {
      */
     public void play_tree(Tree tree, String intro, String filename) throws IOException{
         System.out.println("Welcome to the game !");
-        System.out.println("Hey,"+ intro + ", and then press <return>.");
+        System.out.println(intro + ", and then press <return>.");
 
         Node currentNode = tree.root;
         char answer;
@@ -111,14 +111,14 @@ public class Tree {
 
         while(currentNode != null){
             if(currentNode.is_leaf(currentNode))
-                System.out.println("Is it " + currentNode.get_description(currentNode) + "?");
+                System.out.println("Is it " + currentNode.get_description(currentNode) + " ? (Y/N)");
             else
-                System.out.println(currentNode.get_description(currentNode) + "(Y/N)");
+                System.out.println(currentNode.get_description(currentNode) + " ? (Y/N)");
             System.out.printf("> ");
             answer = sc.next().charAt(0);
             while(answer != YES && answer != NO){
                 System.out.println("WARNING: Please choose between 'Y' or 'N'");
-                System.out.println(currentNode.get_description(currentNode));
+                System.out.println(currentNode.get_description(currentNode) + " (Y/N)");
                 System.out.printf("> ");
                 answer = sc.next().charAt(0);
             }
