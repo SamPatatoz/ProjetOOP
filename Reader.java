@@ -53,21 +53,29 @@ public class Reader
         while(x < nbrOfNode){
             typeOfNode = (char) br.read();
             br.read();
+            String line = br.readLine();
+            String[] words = line.split(" ");
+            int i;
             if(typeOfNode == internal){
-                childLeft = br.read() - 48;
-                br.read();
-                childRight = br.read() - 48;
-                br.read();
+                childLeft = Integer.parseInt(words[0]);
+                childRight = Integer.parseInt(words[1]);
+                nodeDescription = words[2];
+                i = 3;
             }
             else{
                 childLeft = -1;
                 childRight = -1;
+                nodeDescription = words[0];
+                i = 1;
             }
-            nodeDescription = br.readLine();
+            while(i < words.length){
+                nodeDescription = nodeDescription + " " + words[i];
+                i++;
+            }
+            
             lineInFile = x + 1;
             data[x] = new FileData(typeOfNode, childLeft, 
                                    childRight, nodeDescription, lineInFile);
-            System.out.println(typeOfNode + childLeft + childRight + nodeDescription + lineInFile);
             x++;
         }
 

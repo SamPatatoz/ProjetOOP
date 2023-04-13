@@ -1,8 +1,14 @@
-7 Please choose an animal
-? 2 6 Does it have 4 legs
-? 7 4 Does it eat grass
+13 Please choose an animal
+? 5 11 Does it have 4 legs
 = a dog
-? 3 5 Does it bark
-= a cat
 = a chicken
-= a cow
+= a cat
+? 7 9 does it barks
+= a wold
+? 13 2 is it sauvage 
+= a lion
+? 8 4 is it savage 
+= a monkey
+? 10 3 is it hairy
+= a wolf
+? 12 6 is it correctly write

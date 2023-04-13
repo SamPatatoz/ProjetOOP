@@ -66,14 +66,14 @@ public class Tree {
         for(int i = 0; i < nbrOfNode; i++){
             tree.node[i] = new Node(data[i]);
         }
-
         final int left = 0;
         final int right = 1;
+        FileData tempData = null;
         //set the children for each node
         for(int i = 0; i < nbrOfNode; i++){
             //check if not a leaf and then set the children
             if(!(tree.node[i].is_leaf(tree.node[i]))){
-                FileData tempData = tree.node[i].get_data(tree.node[i]);
+                tempData = tree.node[i].get_data(tree.node[i]);
                 //set the children to the current node
                 tree.node[i].intLeft = tempData.get_child(tempData, left);
                 tree.node[i].intRight = tempData.get_child(tempData, right);

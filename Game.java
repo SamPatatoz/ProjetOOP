@@ -12,13 +12,18 @@ public class Game {
         File file = new File(filename);
         BufferedReader br = new BufferedReader(new FileReader(file));
         Reader rd = new Reader(br);
+        String line = br.readLine();
+        String[] words = line.split(" ");
 
-        int nbrOfNode = rd.read_numberOfNodes();
+        int nbrOfNode = Integer.parseInt(words[0]);
         if(nbrOfNode < 3){
             System.out.println("ERROR : Number of nodes not valid in file!");
             System.exit(-1);
         }
-        String intro = rd.read_introduction();
+
+        String intro = words[1];
+        for(int i = 2; i < words.length; i++)
+            intro = intro + " " + words[i];
         if(intro == null){
             System.out.println("ERROR : Introuction not valid in file!");
             System.exit(-1);

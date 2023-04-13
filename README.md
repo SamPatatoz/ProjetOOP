@@ -4,11 +4,12 @@
 # General
 - How to run the game :
     -compile : javac *.java
-    -run : java Game filename
+    -run : java Game filename (for example : tree1.txt)
 - The file must respect the format (check the bottom to see an example)
 
 # Input errors handled by the program
 - The program can detect the root if it is not in the first line of the file and works proprely
+- The program check the number of nodes in the file
 
 # Format of the file
 -The file is a text file, the first line of which contains the number of nodes of the decision tree, followed
