@@ -1,18 +1,20 @@
-17 Please choose an animal
+19 Please choose an animal
 ? 5 11 Does it have 4 legs
 = a dog
 = a chicken
 = a cat
 ? 7 9 does it barks
 = a wold
-? 13 2 is it sauvage 
+? 13 2 is it savage 
 = a lion
 ? 8 4 is it savage 
 = a monkey
-? 17 3 is it hairy
+? 17 19 is it hairy
 = a wolf
 ? 12 15 is it correctly write
 = Matt
 ? 14 6 is it kind
 = Sam
 ? 16 10 a pro player in csgo
+= Romain
+? 18 3 big poo

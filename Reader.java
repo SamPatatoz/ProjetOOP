@@ -1,4 +1,8 @@
 import java.io.*;
+/**
+ * The Reader class reads and processes data from an input stream and file, and returns the data as an
+ * array of FileData objects.
+ */
 public class Reader 
 {
     private BufferedReader br;
@@ -35,6 +39,33 @@ public class Reader
     }
 
     /**
+     * The function checks the number of nodes in a file and returns the count.
+     * 
+     * @param filename The filename parameter is a String that represents the name of the file that
+     * needs to be read.
+     * @param nbrOfNode The parameter nbrOfNode is not used in the method and is therefore irrelevant.
+     * It is not necessary for the method to function properly.
+     * @return The method is returning an integer value which represents the number of lines in the
+     * file (specified by the filename parameter) minus one. This value is obtained by counting the
+     * number of lines in the file using a BufferedReader and FileReader, and then subtracting one from
+     * the total count.
+     */
+    public int check_nbrOfNodes(String filename) throws FileNotFoundException{
+        FileReader fr = new FileReader(filename);
+        int nbrOfLines = 0;
+        try (BufferedReader br = new BufferedReader(fr)) {
+            while(br.readLine() != null)
+                nbrOfLines++;
+        } catch (FileNotFoundException e) {
+            throw e;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return nbrOfLines - 1;
+    }
+
+    /**
      * This function reads data from a file and stores it in an array of FileData objects.
      * 
      * @param data an array of FileData objects that will be populated with data read from a file
@@ -61,6 +92,10 @@ public class Reader
                 childRight = Integer.parseInt(words[1]);
                 nodeDescription = words[2];
                 i = 3;
+                if(childLeft < 1 || childRight < 1){
+                    System.out.println("Child value not valid (< 1) in line ("+line+")");
+                    System.exit(-1);
+                }
             }
             else{
                 childLeft = -1;
