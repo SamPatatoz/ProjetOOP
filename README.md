@@ -11,7 +11,7 @@
 - The program can detect the root if it is not in the first line of the file and works proprely
 - The program check the number of nodes in the file (first value of the file)
 - The program check the real number of nodes in the file
-- The program check the value of the children in the file (must be > 0)
+- The program check the value of the children in the file (must be > 0 && < number of nodes)
 - The program check the existance of the input file
 - The program check if there is an introduction sentence in the input file
 - The program check if the "YES" or "NO" input of the user are well written

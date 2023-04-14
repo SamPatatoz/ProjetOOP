@@ -93,7 +93,13 @@ public class Reader
                 nodeDescription = words[2];
                 i = 3;
                 if(childLeft < 1 || childRight < 1){
-                    System.out.println("Child value not valid (< 1) in line ("+line+")");
+                    System.out.println("ERROR: Child value not valid (< 1) in line ("
+                                        +line+")");
+                    System.exit(-1);
+                }
+                if(childLeft > nbrOfNode || childRight > nbrOfNode){
+                    System.out.println("ERROR: Child value not valid "
+                                       +"(> Number of nodes) in line ("+line+")");
                     System.exit(-1);
                 }
             }
