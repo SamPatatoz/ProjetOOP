@@ -3,9 +3,11 @@
 
 # General
 - How to run the game :
-    -compile : javac *.java
-    -run : java Game filename (for example : tree1.txt)
+    -compile : javac Game.java
+    -run : java Game filename (for example : game-tree.txt)
 - The file must respect the format (check the bottom to see an example)
+- The Makefile is here to clean the *.class : - "make cleanw" for Windows
+                                              - "make clean" for Linux
 
 # Input errors handled by the program
 - The program can detect the root if it is not in the first line of the file and works proprely
@@ -15,6 +17,7 @@
 - The program check the existance of the input file
 - The program check if there is an introduction sentence in the input file
 - The program check if the "YES" or "NO" input of the user are well written
+- ...
 
 # Format of the file
 -The file is a text file, the first line of which contains the number of nodes of the decision tree, followed
