@@ -2,8 +2,7 @@ import java.io.*;
 public class Game {
     public static void main(final String[] args) throws IOException {
         // This code is checking if the length of the `args` array is greater than 0
-        if(!(args.length > 0)){
-            
+        if(!(args.length > 0)){      
             System.out.println("ERROR : missing argument (Input .txt file)");
             System.exit(-1);
         }
@@ -21,7 +20,7 @@ public class Game {
             System.out.println("ERROR : Number of nodes not valid in file! (< 3)");
             System.exit(-1);
         }
-        //check the real number of nodes
+        //check the real number of nodes by reading all the file
         else{
             BufferedReader checkBr = new BufferedReader(new FileReader(file));
             Reader check = new Reader(checkBr);

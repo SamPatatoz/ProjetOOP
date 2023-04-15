@@ -9,6 +9,7 @@ public class Tree {
     private int nbrOfNode;
     private Node root;
 
+    // This is a constructor for the `Tree` class that takes an integer `nbrOfNode` as a parameter.
     public Tree(int nbrOfNode){
         this.nbrOfNode = nbrOfNode;
         node = new Node[this.nbrOfNode];
@@ -74,7 +75,7 @@ public class Tree {
             //check if not a leaf and then set the children
             if(!(tree.node[i].is_leaf(tree.node[i]))){
                 tempData = tree.node[i].get_data(tree.node[i]);
-                //set the children to the current node
+                //set the children of the current node
                 tree.node[i].intLeft = tempData.get_child(tempData, left);
                 tree.node[i].intRight = tempData.get_child(tempData, right);
                 int leftNode = tree.node[i].intLeft;
@@ -154,6 +155,7 @@ public class Tree {
                         System.out.printf("> ");
                         answer = sc.next().charAt(0);
                     }
+                    //Write in the file the new data from the user
                     Writer wt = new Writer(tree, filename, answer, currentNode);
                     wt.write_user_data(winnerQuestion, winnerDescription);
                     System.out.println("Thank you !");

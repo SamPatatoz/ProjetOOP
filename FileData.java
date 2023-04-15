@@ -9,6 +9,9 @@ public class FileData {
     private int lineInFile;
     private String nodeDescription;
 
+    // This is a constructor for the `FileData` class that takes in five parameters: `type`, `cL`,
+    // `cR`, `description`, and `line`. It initializes the `typeOfNode`, `nodeDescription`, and
+    // `lineInFile` properties of the `FileData` object with the corresponding parameter values.
     public FileData(char type, int cL, int cR, String description, int line){
         typeOfNode = type;
         nodeDescription = description;

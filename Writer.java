@@ -75,7 +75,7 @@ public class Writer {
     }
 
     /**
-     * This Java function reads data from a file, updates the first line with a new value, writes user
+     * This function reads data from a file, updates the first line with a new value, writes user
      * description and question to the file, and then writes all the updated data back to the file.
      * 
      * @param question A string representing the question that the user wants to add to the data file.

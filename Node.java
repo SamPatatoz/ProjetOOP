@@ -12,6 +12,7 @@ public class Node {
     private FileData data;
     private String description;
 
+    // This is a constructor for the `Node` class that takes in a parameter of type `FileData`.
     public Node(FileData data){
         char type = data.get_type(data);
         if(type == '=')

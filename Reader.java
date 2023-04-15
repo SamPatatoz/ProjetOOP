@@ -7,6 +7,8 @@ public class Reader
 {
     private BufferedReader br;
 
+    // This is a constructor for the `Reader` class that takes a `BufferedReader` object as a
+    // parameter.
     public Reader(BufferedReader br){
         if(br == null){
             System.out.println("ERROR : Buffered Reader not initialize !");
